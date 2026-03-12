@@ -56,8 +56,9 @@ attach(data);
 vars <- c("lnw","female","married","widowed","separated","divorced","nevermarried","lhs","hsg","sc","cg","ad","ne","mw","so","we","exp1");
 options(digits=2);
 dstats <- cbind(sapply(data[,vars], weighted.mean, weight), apply(data[female==1,vars], 2, weighted.mean, weight[female==1]), apply(data[female==0,vars], 2, weighted.mean, weight[female==0]));
+colnames(dstats) = c("Total", "Women", "Men")
 # print summary stats table
-print(xtable(dstats),file = "gender_gap_summary_stats.tex", include.rownames = FALSE);
+print(xtable(dstats),file = "gender_gap_summary_stats.tex");
 
 
 
